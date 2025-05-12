@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pizzaria TOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🍕 Dashboard Pizzaria TOP 🍕</h1>
+        <button id="btn-relatorio">Relatório do Dia</button>
+    </header>
+
+    <section id="relatorio-container" aria-labelledby="relatorio-titulo">
+        <h2 id="relatorio-titulo">📊 Relatório do Dia</h2>
+        <div id="relatorio-conteudo">
+            <p>Carregando relatório...</p>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <div id="coluna-recebidos" class="coluna-status">
+            <h2>Recebidos</h2>
+            <div id="pedidos-recebidos" class="pedidos-lista">
+                <p class="mensagem-vazio">Nenhum pedido recebido.</p>
+            </div>
+        </div>
+
+        <div id="coluna-em-preparo" class="coluna-status">
+            <h2>Em Preparo</h2>
+            <div id="pedidos-em-preparo" class="pedidos-lista">
+                <p class="mensagem-vazio">Nenhum pedido em preparo.</p>
+            </div>
+        </div>
+
+        <div id="coluna-a-caminho" class="coluna-status">
+            <h2>A caminho</h2>
+            <div id="pedidos-a-caminho" class="pedidos-lista">
+                 <p class="mensagem-vazio">Nenhum pedido a caminho.</p>
+            </div>
+        </div>
+
+        <div id="coluna-entregues" class="coluna-status">
+            <h2>Entregues</h2>
+            <div id="pedidos-entregues" class="pedidos-lista">
+                 <p class="mensagem-vazio">Nenhum pedido entregue hoje.</p>
+            </div>
+        </div>
+
+        <div id="coluna-cancelados" class="coluna-status">
+            <h2>Cancelados</h2>
+            <div id="pedidos-cancelados" class="pedidos-lista">
+                 <p class="mensagem-vazio">Nenhum pedido cancelado hoje.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

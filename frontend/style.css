@@ -1,0 +1,258 @@
+:root {
+    --cor-primaria: #dc3545;
+    --cor-recebido: #0d6efd;
+    --cor-preparo: #ffc107;
+    --cor-a-caminho: #198754;
+    --cor-entregue: #6c757d;
+    --cor-cancelado: #dc3545;
+    --cor-texto-preparo: #333;
+    --cor-fundo: #f8f9fa;
+    --cor-card: white;
+    --cor-texto: #333;
+    --cor-texto-fraco: #6c757d;
+    --cor-borda: #eee;
+    --sombra-card: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --sombra-card-hover: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    margin: 0;
+    padding: 0;
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    font-weight: 700;
+}
+
+#btn-relatorio {
+    background-color: white;
+    color: var(--cor-primaria);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+#btn-relatorio:hover {
+    background-color: #f1f1f1;
+}
+
+#relatorio-container {
+    display: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 1.5rem 0 1.5rem;
+    box-shadow: var(--sombra-card);
+}
+ #relatorio-container h2 {
+    margin-top: 0;
+    text-align: center;
+    color: var(--cor-primaria);
+ }
+ #relatorio-conteudo {
+    margin-top: 1rem;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 1rem;
+ }
+ #relatorio-conteudo p { margin: 0.5rem 0; }
+ #relatorio-conteudo ul { padding-left: 20px; }
+
+
+main {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.coluna-status {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--sombra-card);
+    overflow-x: hidden;
+}
+
+.coluna-status h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor-borda);
+    text-align: center;
+}
+
+#coluna-recebidos h2 { border-color: var(--cor-recebido); color: var(--cor-recebido); }
+#coluna-em-preparo h2 { border-color: var(--cor-preparo); color: var(--cor-preparo); }
+#coluna-a-caminho h2 { border-color: var(--cor-a-caminho); color: var(--cor-a-caminho); }
+#coluna-entregues h2 { border-color: var(--cor-entregue); color: var(--cor-entregue); }
+#coluna-cancelados h2 { border-color: var(--cor-cancelado); color: var(--cor-cancelado); }
+
+.pedidos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100px;
+}
+
+.mensagem-vazio {
+    text-align: center;
+    font-style: italic;
+    color: var(--cor-texto-fraco);
+    padding: 2rem 0;
+}
+
+.pedido-card {
+    background-color: var(--cor-card);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    padding: 1rem;
+    border-left: 6px solid var(--cor-entregue);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: fadeIn 0.4s ease-in-out;
+    cursor: grab;
+}
+.pedido-card:active {
+     cursor: grabbing;
+}
+
+.pedido-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #343a40;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 0.5rem;
+}
+
+.pedido-card p {
+    margin: 0.4rem 0;
+    font-size: 0.9rem;
+}
+
+.pedido-card strong {
+    font-weight: 600;
+    color: #555;
+}
+
+.itens-lista {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 0.5rem;
+}
+
+ .itens-lista li {
+    margin-bottom: 0.2rem;
+ }
+
+.status-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+}
+
+.status-actions {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--cor-borda);
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.status-actions button {
+    padding: 0.4rem 0.7rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: opacity 0.2s, background-color 0.2s;
+    flex-grow: 1;
+    min-width: 70px;
+    text-align: center;
+}
+
+.status-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.status-actions button:not(:disabled):hover {
+    opacity: 0.85;
+}
+
+.btn-recebido { background-color: var(--cor-recebido); }
+.btn-em-preparo { background-color: var(--cor-preparo); color: var(--cor-texto-preparo);}
+.btn-a-caminho { background-color: var(--cor-a-caminho); }
+.btn-entregue { background-color: var(--cor-entregue); }
+.btn-cancelado { background-color: var(--cor-cancelado); }
+
+.status-recebido { border-left-color: var(--cor-recebido); }
+.status-em-preparo { border-left-color: var(--cor-preparo); }
+.status-a-caminho { border-left-color: var(--cor-a-caminho); }
+.status-entregue { border-left-color: var(--cor-entregue); }
+.status-cancelado { border-left-color: var(--cor-cancelado); }
+
+.tag-recebido { background-color: var(--cor-recebido); }
+.tag-em-preparo { background-color: var(--cor-preparo); color: var(--cor-texto-preparo);}
+.tag-a-caminho { background-color: var(--cor-a-caminho); }
+.tag-entregue { background-color: var(--cor-entregue); }
+.tag-cancelado { background-color: var(--cor-cancelado); }
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (min-width: 1024px) {
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .coluna-status {
+         flex: 1;
+         min-width: 280px;
+    }
+}
+ @media (max-width: 640px) {
+     header { padding: 1rem; flex-direction: column; gap: 0.5rem; }
+     main { padding: 1rem; }
+     #relatorio-container { margin: 1rem 1rem 0 1rem; }
+     .coluna-status { padding: 0.8rem; }
+     .pedido-card { padding: 0.8rem; }
+     .status-actions button { font-size: 0.75rem; padding: 0.3rem 0.5rem; }
+ }
